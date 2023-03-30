@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+<title>Edit Product</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="/">Home</a>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="/newProduct">Add Product</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center">Edit product</h1>
+				<div class="card-body">
+					<form th:action="@{/saveProduct}" th:object="${product}" method="post">
+						<div class="form-group">
+							<label>Product Id: </label>
+							<input type="text" name="id" th:field="*{id}" class="form-control" readonly="readonly">
+						</div>
+						<div class="form-group">
+							<label>Name: </label>
+							<input type="text" name="name" th:field="*{name}" class="form-control" placeholder="Type the product's name" required>
+						</div>
+						<div class="form-group">
+							<label>Brand: </label>
+							<input type="text" name="brand" th:field="*{brand}" class="form-control" placeholder="Type the product's brand" required>
+						</div>
+						<div class="form-group">
+							<label>Made in: </label>
+							<input type="text" name="madeIn" th:field="*{madeIn}" class="form-control" placeholder="Type where the product is made from" required>
+						</div>
+						<div class="form-group">
+							<label>Price: </label>
+							<input type="number" name="price" th:field="*{price}" class="form-control" placeholder="Type the product's price" required>
+						</div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-success">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<style>
+		nav{
+			margin-bottom: 50px;
+		}
+	</style>
+</body>
+</html>
